@@ -1,0 +1,22 @@
+CXX      = g++
+CXXFLAGS = -std=c++17 -Wall
+
+Deque.o: Deque.h Deque.cpp
+	$(CXX) $(CXXFLAGS) -c Deque.cpp -o Deque.o
+
+demo: Deque.o demo.cpp
+	$(CXX) $(CXXFLAGS) Deque.o demo.cpp -o demo
+
+run_demo: demo
+	./demo
+
+test: Deque.o test.cpp
+	$(CXX) $(CXXFLAGS) Deque.o test.cpp -o test
+
+run_test: test
+	./test
+
+clean:
+	rm -f Deque.o demo test log.txt
+
+rebuild: clean Deque.o demo test

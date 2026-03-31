@@ -1,0 +1,50 @@
+--- Starting Deque Diagnostic Tests ---
+
+[Phase 1: Basic Operations]
+Test [New deque is empty]: PASSED
+Test [Deque not empty after insertions]: PASSED
+Test [Size is 3 after 3 insertions]: PASSED
+Test [Front is 5 after idetiPriekyje]: PASSED
+Test [Back is 30 after idetiGale]: PASSED
+
+[Phase 2: Search by Value]
+Test [Find value 5 at index 0]: PASSED
+Test [Find value 30 at index 3]: PASSED
+Test [Missing value returns -1]: PASSED
+Test [Exception thrown for search on empty deque]: PASSED
+
+[Phase 3: Dequeue and Removal]
+Test [imtiIsPriekio returns front value (5)]: PASSED
+Test [imtiIsGalo returns back value (30)]: PASSED
+Test [Size is 2 after two removals]: PASSED
+Test [Value 10 removed by operator-=]: PASSED
+Test [Exception thrown for missing value in operator-=]: PASSED
+
+[Phase 4: Update Operations]
+Test [nustatyti(1, 99) updates element correctly]: PASSED
+Test [operator*= updates element at index]: PASSED
+Test [nustatyti out of range throws exception]: PASSED
+
+[Phase 5: Copying and Comparisons]
+Test [Copied deque is equal (operator==)]: PASSED
+Test [Modified copy is not equal (operator!=)]: PASSED
+Test [Original deque is less than modified copy (operator<)]: PASSED
+Test [operator<= original vs modified]: PASSED
+Test [operator> modified vs original]: PASSED
+Test [operator>= modified vs original]: PASSED
+Test [Deep copy does not affect original]: PASSED
+Test [Self-assignment is safe]: PASSED
+
+[Phase 6: Automatic Resize]
+Test [Size is 10 after filling past initial capacity]: PASSED
+Test [Front is correct after resize]: PASSED
+Test [Back is correct after resize]: PASSED
+
+[Phase 7: Object Cleaning]
+Test [Operator! successfully empties the deque]: PASSED
+
+[Phase 8: Underflow Handling]
+Test [Exception thrown on empty imtiIsPriekio]: PASSED
+Test [Exception thrown on empty imtiIsGalo]: PASSED
+
+--- Diagnostic Tests Complete ---
