@@ -81,6 +81,16 @@ int main()
     }
     runTest(caughtRemove, "Exception thrown for missing value in operator-=", logFile);
 
+    //Removal with Circular Array Verification
+    logMessage("\n[Phase 3.5: Removal Verification]", logFile);
+    Deque dRem;
+    dRem.idetiGale(1); dRem.idetiGale(2); dRem.idetiGale(3); dRem.idetiGale(4);
+    dRem -= 2;
+    runTest(dRem[1] == 0, "After removal: 1 at index 0", logFile);
+    runTest(dRem[3] == 1, "After removal: 3 at index 1", logFile);
+    runTest(dRem[4] == 2, "After removal: 4 at index 2", logFile);
+    runTest(dRem.dydis() == 3, "Size is 3 after removal", logFile);
+    
     //Update Operations
     logMessage("\n[Phase 4: Update Operations]", logFile);
     Deque d2;
@@ -124,6 +134,7 @@ int main()
     logMessage("\n[Phase 6: Automatic Resize]", logFile);
     Deque d6(2);
     for (int i = 1; i <= 10; i++) d6.idetiGale(i);
+    runTest(d6.talpa() >= 10, "Capacity is at least 10 after resize", logFile);
     runTest(d6.dydis() == 10, "Size is 10 after filling past initial capacity", logFile);
     runTest(d6.priekis() == 1, "Front is correct after resize", logFile);
     runTest(d6.galas() == 10, "Back is correct after resize", logFile);
