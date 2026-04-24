@@ -154,7 +154,7 @@ namespace DequeN
             dydis = 0; priekis = 0; galas = -1;
         }
 
-        int getDydis() const { return dydis; }
+        int getDydis() const { return 0; }
         int getTalpa() const { return talpa; }
         bool getTuscias() const { return dydis == 0; }
 
