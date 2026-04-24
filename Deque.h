@@ -1,23 +1,23 @@
 /**
 class Deque
-Array-based double-ended queue (deque) Abstract Data Type.
+Masyvo pagrįsta dvigubai sulankyti eiga (deque) Abstrakti Duomenų Struktūra.
+Ši klasė realizuoja dinaminę deque naudodama Pimpl (Rodiklį į Realizaciją) idiomą.
+Viduje naudoja žiedinį masyvą, kuris dvigubina talpą, kai pasipildo.
+Pagrindinės Savybės & Operacijos:
+- Atminties Valdymas: Realizuoja gilų kopijimą ir RAII principus.
+- Įdėjimas: operator+= prideda elementą į pabaigą. idetiGale() ir idetiPriekyje() įdeda į bet kurą galą.
+- Šalinimas: operator-= šalina pirmąjį elementą, kurio reikšmė sutampa. imtiIsGalo() ir imtiIsPriekio() šalina iš abiejų galų.
+- Redagavimas: operator*= atnaujina elementą naudodama koduotą formatą indeksas*1000+reiksme.
+- Būsenos Valdymas: operator! išvalo visus elementus iš deque.
+- Paieška: operator[] ieško reikšmės ir grąžina jos nulinės pakopos indeksą arba -1, jei nerasta.
+- Palyginimas: Pilnai palaiko logiškai suderintuosius reliacinius operatorius (==, !=, <, >, <=, >=).
+- Išvestis: toString() grąžina suformatavę eilutę su deque elementais, dydžiu ir talpa.
 
-This class implements a dynamic deque using the Pimpl (Pointer to Implementation) idiom.
-Internally uses a circular array that doubles in capacity when full.
+throws DequeError Pasirinktinė išimtis, iškelta šalinant iš tuščios deque.
 
-Key Features & Operations:
-- Memory Management: Implements deep copying and RAII principles.
-- Insertion: operator+= adds an element to the back. idetiGale() and idetiPriekyje() insert at either end.
-- Deletion: operator-= removes the first element matching the given value. imtiIsGalo() and imtiIsPriekio() remove from either end.
-- Editing: operator*= updates an element using encoded format indeksas*1000+reiksme.
-- State Management: operator! clears all elements from the deque.
- - Search: operator[] searches for a value and returns its zero-based index, or -1 if not found.
-- Comparisons: Fully supports logically aligned relational operators (==, !=, <, >, <=, >=).
-- Output: toString() returns a formatted string with the deque's elements, size and capacity.
+throws std::out_of_range pasiekus negaliojantį indeksą.
 
-throws DequeError Custom exception thrown on removal from empty deque.
-throws std::out_of_range when accessing an invalid index.
-throws std::invalid_argument when searching or removing from an empty deque or value not found.
+throws std::invalid_argument ieškant ar šalinant iš tuščios deque arba jei reikšmė nerasta.
  */
 
 #ifndef DEQUE_H
