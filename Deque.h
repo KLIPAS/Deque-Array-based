@@ -52,6 +52,7 @@ namespace DequeN{
         void nustatyti(int indeksas, int reiksme);
         int dydis() const;
         bool tuscias() const;
+        int talpa() const;
         std::string toString() const;
 
         Deque& operator+=(int reiksme);
