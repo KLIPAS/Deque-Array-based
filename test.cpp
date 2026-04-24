@@ -32,7 +32,7 @@ int main()
 
     Deque d1;
 
-    //Basic State & Insertion
+    //Pagrindinė būsena ir įdėjimas
     logMessage("\n[Phase 1: Basic Operations]", logFile);
     runTest(d1.tuscias() == true, "New deque is empty", logFile);
     d1.idetiGale(10);
@@ -44,7 +44,7 @@ int main()
     runTest(d1.priekis() == 5, "Front is 5 after idetiPriekyje", logFile);
     runTest(d1.galas() == 30, "Back is 30 after idetiGale", logFile);
 
-    //Search & Indexing (operator[])
+    //Paieška ir indeksavimas (operator[])
     logMessage("\n[Phase 2: Search by Value]", logFile);
     runTest(d1[5] == 0, "Find value 5 at index 0", logFile);
     runTest(d1[30] == 3, "Find value 30 at index 3", logFile);
@@ -62,7 +62,7 @@ int main()
     }
     runTest(caughtNotFound, "Exception thrown for search on empty deque", logFile);
 
-    //Dequeue & Removal
+    //Išėmimas ir šalinimas
     logMessage("\n[Phase 3: Dequeue and Removal]", logFile);
     runTest(d1.imtiIsPriekio() == 5, "imtiIsPriekio returns front value (5)", logFile);
     runTest(d1.imtiIsGalo() == 30, "imtiIsGalo returns back value (30)", logFile);
@@ -81,7 +81,7 @@ int main()
     }
     runTest(caughtRemove, "Exception thrown for missing value in operator-=", logFile);
 
-    //Removal with Circular Array Verification
+    //Šalinimas su žiedinio masyvo patvirtinimu
     logMessage("\n[Phase 3.5: Removal Verification]", logFile);
     Deque dRem;
     dRem.idetiGale(1); dRem.idetiGale(2); dRem.idetiGale(3); dRem.idetiGale(4);
@@ -111,7 +111,7 @@ int main()
     }
     runTest(caughtRange, "nustatyti out of range throws exception", logFile);
 
-    //Deep Copy & Comparisons
+    //Gilus kopijimas ir palyginimas
     logMessage("\n[Phase 5: Copying and Comparisons]", logFile);
     Deque d3;
     d3 += 1; d3 += 2; d3 += 3;
@@ -130,7 +130,7 @@ int main()
     d3 = d3;
     runTest(d3.dydis() == 3, "Self-assignment is safe", logFile);
 
-    //Automatic Resize
+    //Automatinis dydžio keitimas
     logMessage("\n[Phase 6: Automatic Resize]", logFile);
     Deque d6(2);
     for (int i = 1; i <= 10; i++) d6.idetiGale(i);
@@ -139,12 +139,12 @@ int main()
     runTest(d6.priekis() == 1, "Front is correct after resize", logFile);
     runTest(d6.galas() == 10, "Back is correct after resize", logFile);
 
-    //Object Cleaning
+    //Objekto valymas
     logMessage("\n[Phase 7: Object Cleaning]", logFile);
     !d4;
     runTest(d4.tuscias() == true, "Operator! successfully empties the deque", logFile);
 
-    //Underflow Handling
+    //Nepakankamo duomenų kiekio apdorojimas
     logMessage("\n[Phase 8: Underflow Handling]", logFile);
     bool caughtUnderflow = false;
     try
