@@ -105,7 +105,7 @@ namespace DequeN
             masyvas[indeksas(ind)] = reiksme;
         }
 
-        void pasalinti(int reiksme)
+       void pasalinti(int reiksme)
         {
             for (int i = 0; i < dydis; i++)
             {
@@ -113,14 +113,14 @@ namespace DequeN
                 {
                     for (int j = i; j < dydis - 1; j++)
                         masyvas[indeksas(j)] = masyvas[indeksas(j + 1)];
-                    galas = (galas - 1 + talpa) % talpa;
+            
                     dydis--;
+                    galas = indeksas(dydis - 1);
                     return;
-                }
             }
-            throw std::invalid_argument("operator-=: reiksme nerasta");
         }
-
+    throw std::invalid_argument("operator-=: reiksme nerasta");
+}
         int ieskoti(int reiksme) const
         {
             for (int i = 0; i < dydis; i++)
@@ -155,6 +155,7 @@ namespace DequeN
         }
 
         int getDydis() const { return dydis; }
+        int getTalpa() const { return talpa; }
         bool getTuscias() const { return dydis == 0; }
 
         std::string toString() const
@@ -166,10 +167,9 @@ namespace DequeN
                 oss << masyvas[indeksas(i)];
                 if (i < dydis - 1) oss << ",";
             }
-            oss << "] dydis: " << dydis;
+            oss << "] dydis: " << dydis << ", talpa: " << talpa;
             return oss.str();
         }
-    };
 
     DequeError::DequeError(const std::string& message) : std::runtime_error(message) {}
 
@@ -203,6 +203,7 @@ namespace DequeN
     int Deque::galas() const { return impl->getGalas(); }
     void Deque::nustatyti(int indeksas, int reiksme) { impl->nustatyti(indeksas, reiksme); }
     int Deque::dydis() const { return impl->getDydis(); }
+    int Deque::talpa() const { return impl->getTalpa(); }
     bool Deque::tuscias() const { return impl->getTuscias(); }
     std::string Deque::toString() const { return impl->toString(); }
 
